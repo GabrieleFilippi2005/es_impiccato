@@ -1,0 +1,55 @@
+body{
+    font-family: Arial;
+    min-height: 95vh;
+}
+
+#titolo{
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    top: 100%;
+    position: sticky;
+}
+
+.centrato{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottone{
+    background-color: goldenrod;
+    border-radius: 8px;
+    height: 50px;
+    width: auto;
+    border: 0;
+}
+
+.bottone:hover{
+    background-color: gold;
+}
+
+.bottone:active {
+    transform: scale(1.02);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+/* Lowering the shadow */
+}
+
+#txt_parola{
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+#txt_lettera{
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+

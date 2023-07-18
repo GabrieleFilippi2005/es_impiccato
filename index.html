@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es impiccato</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/script.js"></script>
+
+</head>
+<body>
+    <header >
+       <h1 id="titolo">impiccato</h1>
+        <a href="aggiungi.html">aggiungi parole</a>
+    </header>
+    <main>
+        <div id="immagine" class="centrato" style="position: sticky;" >
+            <img src="img/impiccato.png">
+            <p id="parola_da_indovinare" style="top: 50px; font-size: 30px"></p>
+        </div>
+        <p id="tentativi" class="centrato"></p>
+        <div class="centrato">
+            <button class="bottone" onclick="botone()">genera la parola</button>
+        </div>
+        <br><br>
+        <div class="centrato">
+            <label for="txt_lettera">indovina una lettera:</label>
+            <input type="text" id="txt_lettera" name="txt_parola" maxlength="1">
+            <button id="bottone_inviaL" class="bottone" disabled style="margin-right: 70px" onclick="indovina_lettera()">invia</button>
+
+            <label for="txt_parola">indovina la parola:</label>
+            <input type="text" id="txt_parola" name="txt_parola">
+            <button id="bottone_inviaP" class="bottone" onclick="indovina_parola()" disabled>indovina</button>
+        </div>
+
+    </main>
+    <footer>
+        Creato da Filippi Gabriele
+    </footer>
+</body>
+</html>

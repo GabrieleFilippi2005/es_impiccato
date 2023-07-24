@@ -7,12 +7,12 @@ $nomeDb = "parole";
 $conn = mysqli_connect($indirizzoServer, "root", "", $nomeDb);
 
 
-$query2 = "SELECT max(id) as max_id FROM lista_parole";//estraggo il numero delle parole presenti nel db così se una parola viene inserita può essere estratta
+$query2 = "SELECT max(id) as max_id FROM lista_parole";
 $n_parole = $conn->query($query2);
 
-if (!$n_parole) {
-    $row = $n_parole->fetch_assoc();
-    $max_id = $row['max_id'];
+if ($n_parole) {
+    $row = $n_parole->fetch_assoc(); // Estrai il risultato come un array associativo
+    $max_id = $row['max_id']; // Ottengo il valore dell' id dalla colonna calcolata "max_id"
 }
 $num = rand(1,$max_id);
 

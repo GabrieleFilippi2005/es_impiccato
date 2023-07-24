@@ -1,4 +1,5 @@
 let url = "http://localhost/esercizi/es_impiccato/"
+
 let parola
 
 let tentativi_rimasti = 5
@@ -116,7 +117,7 @@ function inserisci_nome(){
 
 function inserisci_file() {
     let file = document.querySelector("input[type=file]");
-
+    console.log(file.files)
     alert("Sto per caricare il file");
 
 
@@ -125,12 +126,36 @@ function inserisci_file() {
     //Indico alla libreria chi contattare terminata la lettura
     reader.onload = async function(datiletti) {
         //console.log(datiletti);// Oggetto FileReader
-        let dati = datiletti.currentTarget.result.split("/");
+        console.log(datiletti.currentTarget.result)
+        let dati = datiletti.currentTarget.result.split(",");
 
         //Trasformato da base64 utf8
-        let datiDecodificati = atob(dati[2]);
+        let datiDecodificati = atob(dati[1]);
         console.log(datiDecodificati)
+
+        //Divido le righe del file in array
+        let righe = datiDecodificati.split("\r\n");
+
+
+        let record= righe[0].split("\n");
+        for(let i=0; i< record.length; i++){
+            record[i] = record[i].replaceAll("'", "");
+        }
+
+
+
+        for(let i=0; i< record.length; i++){
+            let busta = await fetch(url + "server/inserisci_file.php", {
+                    method:"post",
+                    body:JSON.stringify(record[i])
+                }
+            );
+            //Leggo il contenuto della busta
+            console.log(await busta.json());
+            console.log(i);
+        }
     }
+
     reader.readAsDataURL(file.files[0]);
 }
 
